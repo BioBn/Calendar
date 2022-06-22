@@ -1,0 +1,278 @@
+[1mdiff --git a/Task/CMakeLists.txt b/Task/CMakeLists.txt[m
+[1mdeleted file mode 100644[m
+[1mindex d320556..0000000[m
+[1m--- a/Task/CMakeLists.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,45 +0,0 @@[m
+[31m-cmake_minimum_required(VERSION 3.5)[m
+[31m-[m
+[31m-project(Task LANGUAGES CXX)[m
+[31m-[m
+[31m-set(CMAKE_INCLUDE_CURRENT_DIR ON)[m
+[31m-[m
+[31m-set(CMAKE_AUTOUIC ON)[m
+[31m-set(CMAKE_AUTOMOC ON)[m
+[31m-set(CMAKE_AUTORCC ON)[m
+[31m-[m
+[31m-set(CMAKE_CXX_STANDARD 11)[m
+[31m-set(CMAKE_CXX_STANDARD_REQUIRED ON)[m
+[31m-[m
+[31m-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.[m
+[31m-# Check http://doc.qt.io/qt-5/deployment-android.html for more information.[m
+[31m-# They need to be set before the find_package(Qt5 ...) call.[m
+[31m-[m
+[31m-#if(ANDROID)[m
+[31m-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")[m
+[31m-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")[m
+[31m-#        set(ANDROID_EXTRA_LIBS[m
+[31m-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so[m
+[31m-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)[m
+[31m-#    endif()[m
+[31m-#endif()[m
+[31m-[m
+[31m-find_package(Qt5 COMPONENTS Widgets REQUIRED)[m
+[31m-[m
+[31m-if(ANDROID)[m
+[31m-  add_library(Task SHARED[m
+[31m-    main.cpp[m
+[31m-    mainwindow.cpp[m
+[31m-    mainwindow.h[m
+[31m-    mainwindow.ui[m
+[31m-  )[m
+[31m-else()[m
+[31m-  add_executable(Task[m
+[31m-    main.cpp[m
+[31m-    mainwindow.cpp[m
+[31m-    mainwindow.h[m
+[31m-    mainwindow.ui[m
+[31m-  )[m
+[31m-endif()[m
+[31m-[m
+[31m-target_link_libraries(Task PRIVATE Qt5::Widgets)[m
+[1mdiff --git a/Task/main.cpp b/Task/main.cpp[m
+[1mindex fd3e533..a890e9d 100644[m
+[1m--- a/Task/main.cpp[m
+[1m+++ b/Task/main.cpp[m
+[36m@@ -1,11 +1,12 @@[m
+ #include "mainwindow.h"[m
+[31m-[m
+ #include <QApplication>[m
+[32m+[m[32m#include <QDebug>[m
+ [m
+ int main(int argc, char *argv[])[m
+ {[m
+     QApplication a(argc, argv);[m
+     MainWindow w;[m
+     w.show();[m
+[32m+[m[32m    qDebug() << "ayo" ;[m
+     return a.exec();[m
+ }[m
+[1mdiff --git a/calendar/.gitignore b/calendar/.gitignore[m
+[1mdeleted file mode 100644[m
+[1mindex fab7372..0000000[m
+[1m--- a/calendar/.gitignore[m
+[1m+++ /dev/null[m
+[36m@@ -1,73 +0,0 @@[m
+[31m-# This file is used to ignore files which are generated[m
+[31m-# ----------------------------------------------------------------------------[m
+[31m-[m
+[31m-*~[m
+[31m-*.autosave[m
+[31m-*.a[m
+[31m-*.core[m
+[31m-*.moc[m
+[31m-*.o[m
+[31m-*.obj[m
+[31m-*.orig[m
+[31m-*.rej[m
+[31m-*.so[m
+[31m-*.so.*[m
+[31m-*_pch.h.cpp[m
+[31m-*_resource.rc[m
+[31m-*.qm[m
+[31m-.#*[m
+[31m-*.*#[m
+[31m-core[m
+[31m-!core/[m
+[31m-tags[m
+[31m-.DS_Store[m
+[31m-.directory[m
+[31m-*.debug[m
+[31m-Makefile*[m
+[31m-*.prl[m
+[31m-*.app[m
+[31m-moc_*.cpp[m
+[31m-ui_*.h[m
+[31m-qrc_*.cpp[m
+[31m-Thumbs.db[m
+[31m-*.res[m
+[31m-*.rc[m
+[31m-/.qmake.cache[m
+[31m-/.qmake.stash[m
+[31m-[m
+[31m-# qtcreator generated files[m
+[31m-*.pro.user*[m
+[31m-[m
+[31m-# xemacs temporary files[m
+[31m-*.flc[m
+[31m-[m
+[31m-# Vim temporary files[m
+[31m-.*.swp[m
+[31m-[m
+[31m-# Visual Studio generated files[m
+[31m-*.ib_pdb_index[m
+[31m-*.idb[m
+[31m-*.ilk[m
+[31m-*.pdb[m
+[31m-*.sln[m
+[31m-*.suo[m
+[31m-*.vcproj[m
+[31m-*vcproj.*.*.user[m
+[31m-*.ncb[m
+[31m-*.sdf[m
+[31m-*.opensdf[m
+[31m-*.vcxproj[m
+[31m-*vcxproj.*[m
+[31m-[m
+[31m-# MinGW generated files[m
+[31m-*.Debug[m
+[31m-*.Release[m
+[31m-[m
+[31m-# Python byte code[m
+[31m-*.pyc[m
+[31m-[m
+[31m-# Binaries[m
+[31m-# --------[m
+[31m-*.dll[m
+[31m-*.exe[m
+[31m-[m
+[1mdiff --git a/calendar/calendar.pro b/calendar/calendar.pro[m
+[1mdeleted file mode 100644[m
+[1mindex 0086fd6..0000000[m
+[1m--- a/calendar/calendar.pro[m
+[1m+++ /dev/null[m
+[36m@@ -1,31 +0,0 @@[m
+[31m-QT       += core gui[m
+[31m-[m
+[31m-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets[m
+[31m-[m
+[31m-CONFIG += c++11[m
+[31m-[m
+[31m-# The following define makes your compiler emit warnings if you use[m
+[31m-# any Qt feature that has been marked deprecated (the exact warnings[m
+[31m-# depend on your compiler). Please consult the documentation of the[m
+[31m-# deprecated API in order to know how to port your code away from it.[m
+[31m-DEFINES += QT_DEPRECATED_WARNINGS[m
+[31m-[m
+[31m-# You can also make your code fail to compile if it uses deprecated APIs.[m
+[31m-# In order to do so, uncomment the following line.[m
+[31m-# You can also select to disable deprecated APIs only up to a certain version of Qt.[m
+[31m-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0[m
+[31m-[m
+[31m-SOURCES += \[m
+[31m-    main.cpp \[m
+[31m-    mainwindow.cpp[m
+[31m-[m
+[31m-HEADERS += \[m
+[31m-    mainwindow.h[m
+[31m-[m
+[31m-FORMS += \[m
+[31m-    mainwindow.ui[m
+[31m-[m
+[31m-# Default rules for deployment.[m
+[31m-qnx: target.path = /tmp/$${TARGET}/bin[m
+[31m-else: unix:!android: target.path = /opt/$${TARGET}/bin[m
+[31m-!isEmpty(target.path): INSTALLS += target[m
+[1mdiff --git a/calendar/main.cpp b/calendar/main.cpp[m
+[1mdeleted file mode 100644[m
+[1mindex fd3e533..0000000[m
+[1m--- a/calendar/main.cpp[m
+[1m+++ /dev/null[m
+[36m@@ -1,11 +0,0 @@[m
+[31m-#include "mainwindow.h"[m
+[31m-[m
+[31m-#include <QApplication>[m
+[31m-[m
+[31m-int main(int argc, char *argv[])[m
+[31m-{[m
+[31m-    QApplication a(argc, argv);[m
+[31m-    MainWindow w;[m
+[31m-    w.show();[m
+[31m-    return a.exec();[m
+[31m-}[m
+[1mdiff --git a/calendar/mainwindow.cpp b/calendar/mainwindow.cpp[m
+[1mdeleted file mode 100644[m
+[1mindex 41a26bd..0000000[m
+[1m--- a/calendar/mainwindow.cpp[m
+[1m+++ /dev/null[m
+[36m@@ -1,15 +0,0 @@[m
+[31m-#include "mainwindow.h"[m
+[31m-#include "ui_mainwindow.h"[m
+[31m-[m
+[31m-MainWindow::MainWindow(QWidget *parent)[m
+[31m-    : QMainWindow(parent)[m
+[31m-    , ui(new Ui::MainWindow)[m
+[31m-{[m
+[31m-    ui->setupUi(this);[m
+[31m-}[m
+[31m-[m
+[31m-MainWindow::~MainWindow()[m
+[31m-{[m
+[31m-    delete ui;[m
+[31m-}[m
+[31m-[m
+[1mdiff --git a/calendar/mainwindow.h b/calendar/mainwindow.h[m
+[1mdeleted file mode 100644[m
+[1mindex 4643e32..0000000[m
+[1m--- a/calendar/mainwindow.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,21 +0,0 @@[m
+[31m-#ifndef MAINWINDOW_H[m
+[31m-#define MAINWINDOW_H[m
+[31m-[m
+[31m-#include <QMainWindow>[m
+[31m-[m
+[31m-QT_BEGIN_NAMESPACE[m
+[31m-namespace Ui { class MainWindow; }[m
+[31m-QT_END_NAMESPACE[m
+[31m-[m
+[31m-class MainWindow : public QMainWindow[m
+[31m-{[m
+[31m-    Q_OBJECT[m
+[31m-[m
+[31m-public:[m
+[31m-    MainWindow(QWidget *parent = nullptr);[m
+[31m-    ~MainWindow();[m
+[31m-[m
+[31m-private:[m
+[31m-    Ui::MainWindow *ui;[m
+[31m-};[m
+[31m-#endif // MAINWINDOW_H[m
+[1mdiff --git a/calendar/mainwindow.ui b/calendar/mainwindow.ui[m
+[1mdeleted file mode 100644[m
+[1mindex b232854..0000000[m
+[1m--- a/calendar/mainwindow.ui[m
+[1m+++ /dev/null[m
+[36m@@ -1,22 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<ui version="4.0">[m
+[31m- <class>MainWindow</class>[m
+[31m- <widget class="QMainWindow" name="MainWindow">[m
+[31m-  <property name="geometry">[m
+[31m-   <rect>[m
+[31m-    <x>0</x>[m
+[31m-    <y>0</y>[m
+[31m-    <width>800</width>[m
+[31m-    <height>600</height>[m
+[31m-   </rect>[m
+[31m-  </property>[m
+[31m-  <property name="windowTitle">[m
+[31m-   <string>MainWindow</string>[m
+[31m-  </property>[m
+[31m-  <widget class="QWidget" name="centralwidget"/>[m
+[31m-  <widget class="QMenuBar" name="menubar"/>[m
+[31m-  <widget class="QStatusBar" name="statusbar"/>[m
+[31m- </widget>[m
+[31m- <resources/>[m
+[31m- <connections/>[m
+[31m-</ui>[m
