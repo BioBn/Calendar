@@ -1,6 +1,6 @@
 <ui version="4.0">
- <class>Task</class>
- <widget name="Task" class="QDialog">
+ <class>NewTask</class>
+ <widget class="QDialog" name="NewTask">
   <property name="geometry">
    <rect>
     <x>0</x>
