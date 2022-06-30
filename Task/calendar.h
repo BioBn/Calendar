@@ -2,7 +2,8 @@
 #define CALENDAR_H
 
 #include <QDialog>
-
+#include "TaskHold.h"
+#include "tasks.h"
 namespace Ui {
 class Calendar;
 }
