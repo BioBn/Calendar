@@ -12,6 +12,39 @@ Tasks::Tasks(QWidget *parent) :
     ui(new Ui::Tasks)
 {
     ui->setupUi(this);
+    if(MainWindow::tasks.size() > 0)
+    {
+        for (int i = 0 ; i < MainWindow::tasks.size() ; i++)
+        {
+            QString add;
+            add += MainWindow::tasks[i].YEAR;
+            add += "/";
+            add += MainWindow::tasks[i].MONTH;
+            add += "/";
+            add += MainWindow::tasks[i].DAY;
+            add += ":   ";
+            add += "Subject: ";
+            add += MainWindow::tasks[i].subject;
+            add += "   ";
+            add += "Details: ";
+            add += MainWindow::tasks[i].details;
+            add += "   ";
+            add += "Priority: ";
+            if(MainWindow::tasks[i].p == 0)
+            {
+                add += "Low";
+            }
+            else if(MainWindow::tasks[i].p == 1)
+            {
+                add += "Medium";
+            }
+            else if(MainWindow::tasks[i].p == 2)
+            {
+                add += "High";
+            }
+            ui->listWidget->addItem(add);
+        }
+    }
 }
 
 Tasks::~Tasks()
@@ -65,7 +98,7 @@ void Tasks::on_pushButton_2_clicked()
              totaltskcnt++;
 
              hold.stat = OFF;
-             ui->label->setNum(MainWindow::tasks.size());
+
         }
     }
 }

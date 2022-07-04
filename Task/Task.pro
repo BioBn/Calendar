@@ -21,7 +21,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     newtask.cpp \
-    tasks.cpp
+    tasks.cpp \
+    taskview.cpp
 
 HEADERS += \
     TaskHold.h \
@@ -29,14 +30,16 @@ HEADERS += \
     date_select.h \
     mainwindow.h \
     newtask.h \
-    tasks.h
+    tasks.h \
+    taskview.h
 
 FORMS += \
     calendar.ui \
     date_select.ui \
     mainwindow.ui \
     newtask.ui \
-    tasks.ui
+    tasks.ui \
+    taskview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
