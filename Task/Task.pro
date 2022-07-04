@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     calendar.cpp \
+    date_select.cpp \
     main.cpp \
     mainwindow.cpp \
     newtask.cpp \
@@ -25,12 +26,14 @@ SOURCES += \
 HEADERS += \
     TaskHold.h \
     calendar.h \
+    date_select.h \
     mainwindow.h \
     newtask.h \
     tasks.h
 
 FORMS += \
     calendar.ui \
+    date_select.ui \
     mainwindow.ui \
     newtask.ui \
     tasks.ui

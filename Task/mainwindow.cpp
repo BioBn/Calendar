@@ -3,6 +3,8 @@
 #include "tasks.h"
 #include "calendar.h"
 #include <QKeyEvent>
+
+QVector<TaskHold> MainWindow::tasks;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

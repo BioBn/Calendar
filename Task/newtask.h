@@ -2,7 +2,6 @@
 #define NEWTASK_H
 
 #include "TaskHold.h"
-#include "tasks.h"
 #include <QDialog>
 
 namespace Ui {
@@ -16,18 +15,20 @@ class NewTask : public QDialog
 public:
     explicit NewTask(QWidget *parent = nullptr);
     ~NewTask();
+    static TaskHold tsk;
 
 private slots:
     void on_pushButton_clicked();
 
     void on_comboBox_activated(const QString &arg1);
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::NewTask *ui;
-    TaskHold tsk;
+
     static int totaltaskcntnew;
 
-    void keyPressEvent(QKeyEvent *);
 };
 
 #endif // NEWTASK_H
