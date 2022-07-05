@@ -288,11 +288,21 @@ void Calendar::on_comboBox_2_activated(int index)
 
 void Calendar::on_tableWidget_cellDoubleClicked(int row, int column)
 {
-    TaskView TVwindow;
-    TVwindow.setModal(true);
-    TaskView::row = row;
-    TaskView::column = column;
-    TaskView::yr = yr;
-    TaskView::mth = mth;
-    TVwindow.exec();
+    if(MainWindow::tasks.size() > 0)
+    {
+        for ( int i = 0 ; i < MainWindow::tasks.size() ; i++)
+        {
+            if(row * 7 + column + 1 == MainWindow::tasks[i].Day && mth == MainWindow::tasks[i].Month && yr == MainWindow::tasks[i].Year)
+            {
+                TaskView TVwindow;
+                TVwindow.setModal(true);
+                TaskView::row = row;
+                TaskView::column = column;
+                TaskView::yr = yr;
+                TaskView::mth = mth;
+                TVwindow.exec();
+            }
+        }
+    }
+
 }
